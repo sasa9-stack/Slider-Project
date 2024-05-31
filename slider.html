@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css">
+  <title>Swiper Lemondev</title>
+  <style>
+    .swiper-container {
+      width: 100%;
+      height: 600px;
+      position: relative;
+    }
+    .slide-content {
+      position: relative;
+      height: 100%;
+    }
+    .text-content {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 30%;
+      color: black;
+    }
+    .inner-image {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      bottom: 20px;
+      width: 30%;
+      height: calc(100% - 40px); /* Adjusting for padding */
+      border: 2px solid white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .outer-image {
+      width: 100%;
+      height: 100%;
+      filter: blur(1px);
+      opacity: 0.8;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color:black;
+      bottom: 20px;
+      top: auto;
+      height: 40px
+    }
+    .swiper-button-next {
+      right: 50%;
+      transform: translateX(100%);
+    }
+    .swiper-button-prev {
+      left: 50%;
+      transform: translateX(-100%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img src="/assets/Lightbox.png" class="outer-image">
+                  <img src="assets/img1.jpg" class="inner-image">
+                  <div class="text-content">
+                    <h3>Title 1</h3>
+                    <p>Paragraph 1</p>
+                    <p>Paragraph 2</p>
+                  </div>
+                </div>
+              </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <img src="outer-image2.jpg" class="outer-image">
+          <img src="inner-image2.jpg" class="inner-image">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <img src="outer-image3.jpg" class="outer-image">
+          <img src="inner-image3.jpg" class="inner-image">
+        </div>
+      </div>
+    </div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <script src="node_modules/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      loop: true,
+    });
+  </script>
+</body>
+</html>
