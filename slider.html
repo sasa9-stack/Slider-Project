@@ -134,6 +134,7 @@
         prevEl: '.swiper-button-prev',
       },
       loop: true,
+      effect: 'fade',
       on: {
         init: function () {
           this.slides.forEach(slide => {
@@ -146,9 +147,11 @@
             slide.style.opacity = '0';
             const outerImage = slide.querySelector('.outer-image');
             const innerImage = slide.querySelector('.inner-image');
-            outerImage.style.opacity = '0';
-            innerImage.style.opacity = '0';
-            innerImage.style.transform = 'translateY(50%)';
+            if (outerImage) outerImage.style.opacity = '0';
+            if (innerImage) {
+              innerImage.style.opacity = '0';
+              innerImage.style.transform = 'translateY(50%)';
+            }
           });
         },
         slideChangeTransitionEnd: function() {
@@ -156,12 +159,15 @@
           activeSlide.style.opacity = '1';
           const outerImage = activeSlide.querySelector('.outer-image');
           const innerImage = activeSlide.querySelector('.inner-image');
-          outerImage.style.opacity = '0.8';
-          innerImage.style.opacity = '1';
-          innerImage.style.transform = 'translateY(0)';
+          if (outerImage) outerImage.style.opacity = '0.8';
+          if (innerImage) {
+            innerImage.style.opacity = '1';
+            innerImage.style.transform = 'translateY(0)';
+          }
         },
       },
     });
   </script>
+  
 </body>
 </html>
