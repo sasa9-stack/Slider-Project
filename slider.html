@@ -32,7 +32,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 30%;
       color: black;
     }
     .inner-image {
@@ -52,37 +51,45 @@
       width: 100%;
       height: 100%;
       filter: blur(1px);
-      opacity: 0;
+      opacity: 0.8;
       transition: opacity 1s ease;
+      
     }
     .swiper-button-next, .swiper-button-prev {
       color: white;
       background-color: black;
-      padding: 15px;
-      font-size: 20px;
+      padding: 9px;
       border: none;
       cursor: pointer;
-      bottom: 20px;
+      bottom: 8%;
       top: auto;
       height: auto;
       width: auto;
     }
     .swiper-button-next {
-      right: 10px;
+
+      right: 48%;
       transform: translateX(0);
     }
     .swiper-button-prev {
-      left: 10px;
+      left: 48%;
       transform: translateX(0);
     }
     :root {
-      --swiper-navigation-size: 20px;
+      --swiper-navigation-size: 12px;
     }
     .slide-text {
       margin: 10px 0; /* Reduce spacing between elements */
+      font-size: 30px
     }
-    .slide-text-description, .slide-text-discover {
+    .slide-text-description {
       margin: 5px 0; /* Reduce spacing between elements */
+      font-size: x-large;
+    }
+    .slide-text-discover{
+      margin: 5px 0; /* Reduce spacing between elements */
+      font-size: 16px;
+      opacity: 0.6;
     }
     .swiper-slide-active .inner-image {
       opacity: 1;
@@ -122,8 +129,10 @@
       </div>
     </div>
     <!-- Navigation -->
-    <div class="swiper-button-next">Next</div>
-    <div class="swiper-button-prev">Prev</div>
+    <div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
   </div>
 
   <script src="node_modules/swiper/swiper-bundle.min.js"></script>
