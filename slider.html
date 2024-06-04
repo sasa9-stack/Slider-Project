@@ -50,43 +50,44 @@
     .outer-image {
       width: 100%;
       height: 100%;
+      background-size: cover;
+      background-position: center;
       filter: blur(1px);
       opacity: 0.8;
       transition: opacity 1s ease;
-      
     }
-    .swiper-button-next, .swiper-button-prev {
+    .swiper-button-next,
+    .swiper-button-prev {
       color: white;
       background-color: black;
       padding: 9px;
       border: none;
       cursor: pointer;
+      flex-shrink: 0; /* Prevent buttons from shrinking */
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
       bottom: 8%;
-      top: auto;
-      height: auto;
       width: auto;
-    }
-    .swiper-button-next {
-
-      right: 48%;
-      transform: translateX(0);
-    }
-    .swiper-button-prev {
-      left: 48%;
-      transform: translateX(0);
+      left: 50%;
+      
+      gap: 10px; /* Adjust gap between buttons */
     }
     :root {
       --swiper-navigation-size: 12px;
     }
     .slide-text {
       margin: 10px 0; /* Reduce spacing between elements */
-      font-size: 30px
+      font-size: 30px;
     }
     .slide-text-description {
       margin: 5px 0; /* Reduce spacing between elements */
       font-size: x-large;
     }
-    .slide-text-discover{
+    .slide-text-discover {
       margin: 5px 0; /* Reduce spacing between elements */
       font-size: 16px;
       opacity: 0.6;
@@ -98,6 +99,27 @@
     .swiper-slide-active .outer-image {
       opacity: 0.8;
     }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .button-container {
+        bottom: 5%; /* Adjust the position for smaller screens */
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        padding: 6px; /* Adjust padding for smaller screens */
+        --swiper-navigation-size: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      .button-container {
+        bottom: 2%; /* Further adjustment for very small screens */
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        padding: 4px; /* Further adjustment for very small screens */
+        --swiper-navigation-size: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -106,7 +128,7 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="slide-content">
-          <img src="/assets/Lightbox.png" class="outer-image">
+          <div class="outer-image" style="background-image: url('/assets/Lightbox.png');"></div>
           <img src="assets/img1.jpg" class="inner-image">
           <div class="text-content">
             <p class="slide-text-discover">DISCOVER Collection WOMEN</p>
@@ -117,21 +139,21 @@
       </div>
       <div class="swiper-slide">
         <div class="slide-content">
-          <img src="outer-image2.jpg" class="outer-image">
+          <div class="outer-image" style="background-image: url('outer-image2.jpg');"></div>
           <img src="inner-image2.jpg" class="inner-image">
         </div>
       </div>
       <div class="swiper-slide">
         <div class="slide-content">
-          <img src="outer-image3.jpg" class="outer-image">
+          <div class="outer-image" style="background-image: url('outer-image3.jpg');"></div>
           <img src="inner-image3.jpg" class="inner-image">
         </div>
       </div>
     </div>
     <!-- Navigation -->
-    <div>
-      <div class="swiper-button-next"></div>
+    <div class="button-container">
       <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 
@@ -177,6 +199,5 @@
       },
     });
   </script>
-  
 </body>
 </html>
